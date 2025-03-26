@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychic Sign-Up Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Grotesk:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" type="text/css" media="all" />
+    <link rel="shortcut icon" href="portal.ico" type="x-icon">
+    </head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Cosmic Rings -->
+    <div class="cosmic-ring ring-1"></div>
+    <div class="cosmic-ring ring-2"></div>
+
+    <!-- Main Sign-Up Portal -->
+    <div class="cosmic-portal">
+        <h1 class="portal-title">Psychic Portal</h1>
+        
+        <form id="signup-form">
+            <div class="input-group">
+                <input type="text" id="username" required minlength="4" maxlength="20">
+                <label for="username">Psychic Username</label>
+                <span class="error-message">4-20 characters required</span>
+            </div>
+            
+            <div class="input-group">
+                <input type="email" id="email" required>
+                <label for="email">Quantum Email</label>
+                <span class="error-message">Valid email required</span>
+            </div>
+            
+            <div class="input-group">
+                <input type="password" id="password" required minlength="10" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$">
+                <label for="password">Cosmic Password</label>
+                <span class="error-message">8+ chars, uppercase, lowercase & number</span>
+            </div>
+            
+            <div class="input-group">
+                <input type="password" id="confirm-password" required>
+                <label for="confirm-password">Confirm Cosmos</label>
+                <span class="error-message">Passwords must match</span>
+            </div>
+            
+            <button type="submit" class="submit-btn">Activate Warp Account</button>
+        </form>
+        
+        <p class="portal-footer">
+            Already a cosmic member? <a href="#" id="login-link">Enter Portal</a><br />
+            Made by Dev Jajodia/PsychicStark
+        </p>
+    </div>
+
+    <!-- Success Overlay -->
+    <div class="success-overlay" id="success-overlay">
+        <div class="success-message">Warp Jump Successful!</div>
+        <div class="warp-animation"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

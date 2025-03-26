@@ -1,0 +1,310 @@
+/* ====== GLOBAL STYLES ====== */
+        :root {
+            --cosmic-blue: #5e9fff;
+            --neon-purple: #b388ff;
+            --deep-space: #0a0a1a;
+            --star-light: rgba(255, 255, 255, 0.9);
+            --error-red: #ff4d6d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(ellipse at bottom, #0f0c29, #302b63, #24243e);
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        /* ====== PARTICLES BACKGROUND ====== */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* ====== MAIN PORTAL CONTAINER ====== */
+        .cosmic-portal {
+            position: relative;
+            z-index: 10;
+            width: 500px;
+            padding: 50px;
+            background: rgba(10, 10, 30, 0.7);
+            border-radius: 25px;
+            box-shadow: 
+                0 0 40px rgba(94, 159, 255, 0.4),
+                0 0 80px rgba(179, 136, 255, 0.3),
+                inset 0 0 20px rgba(100, 200, 255, 0.5);
+            border: 1px solid rgba(100, 200, 255, 0.3);
+            backdrop-filter: blur(10px);
+            transform-style: preserve-3d;
+            animation: float 8s ease-in-out infinite;
+            overflow: hidden;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotateX(0) rotateY(0); }
+            50% { transform: translateY(-20px) rotateX(5deg) rotateY(5deg); }
+        }
+
+        /* ====== PORTAL TITLE ====== */
+        .portal-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: white;
+            text-shadow: 
+                0 0 10px var(--cosmic-blue),
+                0 0 20px var(--neon-purple);
+            position: relative;
+        }
+
+        .portal-title::after {
+            content: "";
+            display: block;
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--cosmic-blue), transparent);
+            margin: 15px auto;
+            border-radius: 50%;
+        }
+
+        /* ====== INPUT FIELDS ====== */
+        .input-group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 18px 25px;
+            background: rgba(20, 20, 50, 0.6);
+            border: 1px solid rgba(100, 200, 255, 0.3);
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.4s;
+        }
+
+        .input-group input:focus {
+            border-color: var(--cosmic-blue);
+            box-shadow: 0 0 15px rgba(94, 159, 255, 0.5);
+            background: rgba(30, 30, 70, 0.8);
+        }
+
+        .input-group label {
+            position: absolute;
+            top: 18px;
+            left: 25px;
+            color: rgba(200, 220, 255, 0.8);
+            pointer-events: none;
+            transition: all 0.4s;
+        }
+
+        .input-group input:focus + label,
+        .input-group input:valid + label {
+            top: -12px;
+            left: 15px;
+            font-size: 0.8rem;
+            background: var(--deep-space);
+            padding: 0 8px;
+            color: var(--cosmic-blue);
+            text-shadow: 0 0 5px var(--cosmic-blue);
+        }
+
+        /* ====== ERROR MESSAGES ====== */
+        .error-message {
+            position: absolute;
+            bottom: -20px;
+            right: 0;
+            color: var(--error-red);
+            font-size: 0.75rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .input-group.error input {
+            border-color: var(--error-red);
+            box-shadow: 0 0 10px rgba(255, 77, 109, 0.5);
+        }
+
+        .input-group.error label {
+            color: var(--error-red);
+        }
+
+        .input-group.error .error-message {
+            opacity: 1;
+        }
+
+        /* ====== SUBMIT BUTTON ====== */
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--cosmic-blue), var(--neon-purple));
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(94, 159, 255, 0.6);
+        }
+
+        .submit-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        /* ====== FOOTER LINK ====== */
+        .portal-footer {
+            text-align: center;
+            margin-top: 25px;
+            color: rgba(200, 220, 255, 0.7);
+        }
+
+        .portal-footer a {
+            color: var(--cosmic-blue);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .portal-footer a:hover {
+            text-shadow: 0 0 10px var(--cosmic-blue);
+        }
+
+        /* ====== SUCCESS OVERLAY ====== */
+        .success-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s;
+        }
+
+        .success-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .success-message {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--cosmic-blue);
+            text-shadow: 0 0 20px var(--cosmic-blue);
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+        }
+
+        .warp-animation {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--cosmic-blue);
+            border-top-color: transparent;
+            animation: spin 2s linear infinite;
+            position: relative;
+        }
+
+        .warp-animation::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            border: 3px solid var(--neon-purple);
+            border-bottom-color: transparent;
+            animation: spin 3s linear infinite reverse;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ====== COSMIC RINGS ====== */
+        .cosmic-ring {
+            position: absolute;
+            border: 2px solid rgba(100, 200, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .ring-1 {
+            width: 800px;
+            height: 800px;
+            top: -200px;
+            left: -200px;
+            animation: rotate 60s linear infinite;
+        }
+
+        .ring-2 {
+            width: 1000px;
+            height: 1000px;
+            top: -300px;
+            left: -300px;
+            animation: rotate 80s linear infinite reverse;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ====== RESPONSIVE DESIGN ====== */
+        @media (max-width: 600px) {
+            .cosmic-portal {
+                width: 90%;
+                padding: 30px;
+            }
+
+            .portal-title {
+                font-size: 1.8rem;
+            }
+        }
